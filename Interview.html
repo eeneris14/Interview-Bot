@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.topnav {
+    background-color: #5D368D;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Courier New
+      
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #B65FC1;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.title {
+ font-family: Courier New;
+ font-size: 45px
+}
+
+.intro {
+  font-family: Courier New;
+  font-weight: 600;
+  border: 4px dashed #A778BE;
+  font-size: 30px;
+}
+
+.entire {
+  background-color: #C88EB5;
+}
+ 
+img {
+
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.button {
+  margin-left: 121px;
+    margin-top: 1px;
+    width: 100px;
+    height: 70px;  
+
+
+
+}
+
+</style>
+</head>
+<body class="entire">
+<h1 class="title">Ready. Set. Interview!</h1>
+<h><div class="topnav" id="myTopnav">
+   <div align="center">
+<a href="home.html">Home</a> 
+<a href="Interview.html">Interview</a> 
+<a href="Learn.html">Learn</a> 
+<a href="Help.html">Help</a>
+    </div></div></h>
+
+<p class="intro">Hi and welcome to Interview Bot! My name is Abahy and I am going to interview you today. Click the button to generate questions and answer to the best of your ability. Do the best you can and remember this is only practice! Happy chatting!</p>
+
+
+
+ 
+<div class="button"><input id="Click for an interview!" type="button" value="click for an interview question!" onclick="myFunction();" />
+<img src="busy robot.png"></div>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+<script>
+
+
+
+function myFunction()
+{var score; 
+var array1
+var array2;
+var question;
+var valid;
+var adder;
+//var hasTripple = /(.)\1\1/.test('xyzzzy');
+score = 0;
+/*response =;
+array2 = response.split(";");
+if(response != array2){
+  console.log("array1 has a semicolon");
+}*/
+//console.log(score);
+result = Math.floor(Math.random()*11);
+//result = 2;
+      if(result===0){question ="What is your biggest weakness?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 1){
+        question ="What is your biggest weakness?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 2){
+        question = "What is your greatest strength?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 3){
+        question = "Tell me about yourself.";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 4){
+        question = "Why are you leaving or have left your job?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 5){
+        quesion = "Why do you want this job?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 6){
+        question = "How do you handle stress and pressure?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 7){
+        question = "Describe a difficult work situation / project and how you overcame it.";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 8){
+        question = "What are your goals for the future?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 9){
+        question = "How do you work in a group?";
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 10){
+        question = "How would you adjust to working for a new company?"
+        var response = prompt(question);
+        score += 5;
+        }
+      if(result == 11){
+        console.log("Why should I take a risk on you?");
+        var response = prompt(question);
+        score += 5;
+        }
+        //if(!response.includes(".")){
+         // console.log("InterviewBot says that is not a vialid feresapoinse.")
+          //score = 0;
+         // valid = false;
+        //}
+        if(!response.includes(" ") ||!response.includes(".")){
+          valid = false;
+        }
+        if(valid===false){
+          /* alert("InterviewBot has detected an error within your response. Remember to use a period to end your response.");
+          score = 0; */
+          var first = true;
+        }
+         //else{ 
+         // valid = true;
+         // }
+        var str;
+var valid;
+str = response;
+for(var i = 0; i<str.length; i++){
+  if(str[i-2]==str[i-1]&&str[i-1]==str[1]){
+    valid = false;
+  
+  }
+}
+for (var i=0;i<response.length;i++){
+  if(str[i]==str[i-3] && str[i-1]==str[i-4] && str[i-2] ==str[i-5]){
+    valid = false; 
+  }
+  else{
+    valid = true;
+  }
+  
+}
+//str[0]
+console.log(valid);
+          
+        if(response.includes(";") && valid === true){
+          //alert("that is good enough response");
+          score +=10;
+        }
+        
+        var responseLength = response.length;
+        
+        if(responseLength < 41 && valid === true){
+          score +=1;
+          alert("Try giving more detail to your response.");
+        }
+        if(responseLength < 91 && responseLength > 40 && valid === true){
+          score +=15;
+          alert("My systems have shown more success with longer responses.");
+        }
+        if(responseLength < 140 && responseLength > 90 && valid === true){
+          score+=30;
+        }
+        if(responseLength < 165 && responseLength > 139 && valid === true){
+          score+=45;
+        }
+        if(responseLength < 180 && responseLength > 164 && valid === true){
+          score+=60;
+        }
+        if(responseLength < 200 && responseLength > 179 && valid === true){
+          score+=85;
+        }
+        if(responseLength >= 200 && valid === true){
+          score+=70;
+          alert("Your seem to be showing signs of redundancy. Try being a bit more concise.");
+        }
+        for(var j = 0; j <response.length; j++){
+          var very = response.split(" ", j);
+          //var veryp = response.split(" ", j-1);
+         // var diff = very-veryp;
+         // var i = response.split(" ", j)
+         // var ip = response.split("")
+          console.log(very);
+        } 
+        if (very.includes("very")){
+            alert("Try to not say the word very");
+            score+= -3;
+          }
+        if (very.includes("good")){
+            alert("Try to not say the word good");
+            score+= -3;
+          }
+        if (very.includes("bad")){
+            alert("Try to not say the word bad");
+            score+= -3;
+          }
+        if (very.includes("like")){
+            alert("Try to not say the word like");
+            score+= -3;
+          }
+        if (very.includes("stuff")){
+            alert("Try to not say the word stuff");
+            score+= -3;
+          }
+      /*  if (very.includes("I") && very.includes("think")){
+            alert("Try to not say the phrase I think");
+            score+= -3;
+         if (very.includes("i") && very.includes("think")){
+            alert("Try to not say the phrase I think");
+            score+= -3;
+          }*/
+        if (very.includes("thing")){
+            alert("Try to not say the word thing");
+            score+= -3;
+          }
+        if (very.includes("things")){
+            alert("Try to not say the word things");
+            score+= -3;
+          }  
+          
+          for(var h = 0; h<response.length; h++){
+            if(very.includes("I")){
+              adder++;
+              
+            }
+          }
+        console.log(adder);
+        
+          
+        /*if(diff = "I"){
+          var mult;
+          mult++;
+          if(mult>4){alert("dfghj");}
+        }*/
+        
+        //for(var k = 0; k <response.length; k++) { 
+        //  
+        //}
+          
+          
+          
+          
+        if(valid===false){
+          
+          
+          var second = true;
+        }
+        if(first === true || second === true){
+          alert("InterviewBot has detected an error within your response. Remember to use a period to end your response.");
+          score = 0;
+        }
+      console.log("responselength: " +responseLength);
+        //var response = prompt(question);
+        //var response = prompt()
+        alert("score: " +score);
+        console.log("result: " +result);
+        console.log(valid);}
+</script> 
